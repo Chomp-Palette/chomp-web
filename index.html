@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chomp Palette</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #495b45; /* Text color for the entire page */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the footer stays at the bottom */
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #b4c5b1;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #495b45; /* Text color for navbar links */
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        /* Hover effect */
+        .navbar a:hover {
+            background-color: #5f7659;
+            color: #ccd5ca; /* Text color on hover */
+        }
+
+        /* Icon styles */
+        .navbar-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Page content */
+        .content {
+            padding: 20px;
+            flex: 1; /* Push the footer to the bottom */
+        }
+
+        /* Image and text section */
+        .image-text-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #e0e7dd; /* Light background for the section */
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .image-text-section img {
+            width: 40%; /* Image takes up 40% of the container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Rounded corners for the image */
+        }
+
+        .image-text-section .text {
+            width: 55%; /* Text takes up the remaining space */
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        .image-text-section h2 {
+            margin-top: 0;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #b4c5b1;
+            padding: 10px 20px;
+            text-align: center;
+            color: #495b45;
+        }
+
+        .footer a {
+            color: #495b45;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #5f7659; /* Hover effect for footer links */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- Icon -->
+        <img src="assets/icon.png" alt="Navbar Icon" class="navbar-icon">
+
+        <!-- Navbar links -->
+        <div class="navbar-links">
+                    <a href="pages/palette.html">Palette</a>
+            <a href="https://www.reddit.com/r/chomppalette/" target="_blank">Reddit</a>
+            <a href="https://github.com/Chomp-Palette" target="_blank">GitHub</a>
+            <a href="https://discord.gg/GSJD9qcFPK" target="_blank">Discord</a>
+
+            <a href="https://x.com/ChompPalette" target="_blank">X</a>
+        </div>
+    </nav>
+
+    <!-- Page content -->
+    <div class="content">
+        <!-- Image and text section -->
+        <div class="image-text-section">
+            <!-- Image on the left -->
+            <img src="assets/image.png" alt="Example Image">
+
+            <!-- Text on the right -->
+            <div class="text">
+                <h2>Chomp Palette</h2>
+                <p>Chomp Palette is not a color theme, it's a color palette made for use in various fields (mainly in computing though). While a color theme has fixed colors, we give you the opportunity to create your own versions of Chomp Palette and still have them be part of the palette! That being said, welcome to the community!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>
+            <a href="https://github.com/Alexxami" target="_blank">Alexxami</a> |
+            <a href="https://github.com/Chomp-Palette" target="_blank">Chomp Palette</a>
+        </p>
+    </footer>
+</body>
+</html>

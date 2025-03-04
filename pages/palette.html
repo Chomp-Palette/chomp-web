@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chomp Palette</title>
+    <link rel="icon" type="image/png" href="../assets/icon.png">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #495b45;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #b4c5b1;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #495b45;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #5f7659;
+            color: #ccd5ca;
+        }
+
+        .navbar-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+
+        .content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .collapsible {
+            color: #495b45;
+            background-color: #b4c5b1;
+            margin: 10px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .collapsible-header:hover {
+            background-color: #aee8ae;
+        }
+
+        .collapsible-header h2 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .collapsible-header .arrow {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .collapsible-content.open {
+            padding: 15px 20px;
+            max-height: 500px;
+        }
+
+        .color-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .color-dot {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+
+        .color-name {
+            flex: 1;
+        }
+
+        .copy-button {
+            background-color: #5f7659;
+            color: #b4c5b1;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 6.2em;
+            text-align: center
+        }
+
+        .copy-button.copied {
+            background-color: #85c779;
+            color: #5f7659;
+        }
+
+        .copy-button.copied::after {
+            content: "✓";
+        }
+
+        .footer {
+            background-color: #b4c5b1;
+            padding: 10px 20px;
+            text-align: center;
+            color: #495b45;
+        }
+
+        .footer a {
+            color: #495b45;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #495b45;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- Icon -->
+        <img src="../assets/icon.png" alt="Navbar Icon" class="navbar-icon"> <!-- Updated path for the icon -->
+
+        <!-- Navbar links -->
+        <div class="navbar-links">
+            <a href="../index.html">Home</a> <!-- Updated link to index.html -->
+            <a href="https://github.com/Chomp-Palette" target="_blank">GitHub</a>
+            <a href="https://discord.gg/GSJD9qcFPK" target="_blank">Discord</a>
+            <a href="https://x.com/ChompPalette" target="_blank">X</a>
+        </div>
+    </nav>
+
+    <!-- Page content -->
+    <div class="content">
+        <!-- Collapsible sections -->
+        <div class="collapsible">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                <h2>Chomp Red</h2>
+                <span class="arrow">→ </span>
+            </div>
+            <div class="collapsible-content">
+
+                <div class="color-line">
+                    <div class="color-dot" style="color: #ccbcb9;">•</div>
+                    <div class="color-name">Border</div>
+                    <button class="copy-button" onclick="copyHex('#ccbcb9', this)">#ccbcb9</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #cea6a7;">•</div>
+                    <div class="color-name">Base</div>
+                    <button class="copy-button" onclick="copyHex('#cea6a7', this)">#cea6a7</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #f9d0cf;">•</div>
+                    <div class="color-name">Accentuated</div>
+                    <button class="copy-button" onclick="copyHex('#f9d0cf', this)">#f9d0cf</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #cea780;">•</div>
+                    <div class="color-name">Dark Red 1</div>
+                    <button class="copy-button" onclick="copyHex('#cea780', this)">#cea780</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #d9908a;">•</div>
+                    <div class="color-name">Dark Red 2</div>
+                    <button class="copy-button" onclick="copyHex('#d9908a', this)">#d9908a</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #e67070;">•</div>
+                    <div class="color-name">Dark Red 3</div>
+                    <button class="copy-button" onclick="copyHex('#e67070', this)">#e67070</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #d9908a;">•</div>
+                    <div class="color-name">Dark Red 4</div>
+                    <button class="copy-button" onclick="copyHex('#835251', this)">#835251</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #934643;">•</div>
+                    <div class="color-name">Text</div>
+                    <button class="copy-button" onclick="copyHex('#934643', this)">#934643</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                <h2>Chomp Yellow</h2>
+                <span class="arrow">→ </span>
+            </div>
+            <div class="collapsible-content">
+
+                <div class="color-line">
+                    <div class="color-dot" style="color: #d5d3b4;">•</div>
+                    <div class="color-name">Border</div>
+                    <button class="copy-button" onclick="copyHex('#d5d3b4', this)">#d5d3b4</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #c5c08f;">•</div>
+                    <div class="color-name">Base</div>
+                    <button class="copy-button" onclick="copyHex('#c5c08f', this)">#c5c08f</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #e5dd94;">•</div>
+                    <div class="color-name">Accentuated</div>
+                    <button class="copy-button" onclick="copyHex('#e5dd94', this)">#e5dd94</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #e8dd79;">•</div>
+                    <div class="color-name">Dark Yellow 1</div>
+                    <button class="copy-button" onclick="copyHex('#e8dd79', this)">#e8dd79</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #8b8149;">•</div>
+                    <div class="color-name">Dark Yellow 2</div>
+                    <button class="copy-button" onclick="copyHex('#8b8149', this)">#8b8149</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #9b9b2f;">•</div>
+                    <div class="color-name">Dark Yellow 3</div>
+                    <button class="copy-button" onclick="copyHex('#9b9b2f', this)">#9b9b2f</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #8b8149;">•</div>
+                    <div class="color-name">Dark Yellow 4</div>
+                    <button class="copy-button" onclick="copyHex('#8b8149', this)">#8b8149</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #7b7600;">•</div>
+                    <div class="color-name">Text</div>
+                    <button class="copy-button" onclick="copyHex('#7b7600', this)">#7b7600</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                <h2>Chomp Green</h2>
+                <span class="arrow">→</span>
+            </div>
+            <div class="collapsible-content">
+
+                <div class="color-line">
+                    <div class="color-dot" style="color: #ccd5ca;">•</div>
+                    <div class="color-name">Border</div>
+                    <button class="copy-button" onclick="copyHex('#ccd5ca', this)">#ccd5ca</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #b4c5b1;">•</div>
+                    <div class="color-name">Base</div>
+                    <button class="copy-button" onclick="copyHex('#b4c5b1', this)">#b4c5b1</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #aee8ae;">•</div>
+                    <div class="color-name">Accentuated</div>
+                    <button class="copy-button" onclick="copyHex('#aee8ae', this)">#aee8ae</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #80e879;">•</div>
+                    <div class="color-name">Dark Green 1</div>
+                    <button class="copy-button" onclick="copyHex('#80e879', this)">#80e879</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #85c779;">•</div>
+                    <div class="color-name">Dark Green 2</div>
+                    <button class="copy-button" onclick="copyHex('#85c779', this)">#85c779</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #479b2f;">•</div>
+                    <div class="color-name">Dark Green 3</div>
+                    <button class="copy-button" onclick="copyHex('#479b2f', this)">#479b2f</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #5f7659;">•</div>
+                    <div class="color-name">Dark Green 4</div>
+                    <button class="copy-button" onclick="copyHex('#5f7659', this)">#5f7659</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #495b45;">•</div>
+                    <div class="color-name">Text</div>
+                    <button class="copy-button" onclick="copyHex('#495b45', this)">#495b45</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                <h2>Chomp Purple</h2>
+                <span class="arrow">→</span>
+            </div>
+            <div class="collapsible-content">
+
+                <div class="color-line">
+                    <div class="color-dot" style="color: #cfcad5;">•</div>
+                    <div class="color-name">Border</div>
+                    <button class="copy-button" onclick="copyHex('#cfcad5', this)">#cfcad5</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #bdb1c5;">•</div>
+                    <div class="color-name">Base</div>
+                    <button class="copy-button" onclick="copyHex('#bdb1c5', this)">#bdb1c5</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #f0cff9;">•</div>
+                    <div class="color-name">Accentuated </div>
+                    <button class="copy-button" onclick="copyHex('#f0cff9', this)">#f0cff9</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #d299e5;">•</div>
+                    <div class="color-name">Dark Purple 1 </div>
+                    <button class="copy-button" onclick="copyHex('#d299e5', this)">#d299e5</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #8b8149;">•</div>
+                    <div class="color-name">Dark Purple 2</div>
+                    <button class="copy-button" onclick="copyHex('#8b8149', this)">#8b8149</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #8e63ac;">•</div>
+                    <div class="color-name">Dark Purple 3</div>
+                    <button class="copy-button" onclick="copyHex('#8e63ac', this)">#8e63ac</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #685b74;">•</div>
+                    <div class="color-name">Dark Purple 4</div>
+                    <button class="copy-button" onclick="copyHex('#685b74', this)">#685b74</button>
+                </div>
+                <div class="color-line">
+                    <div class="color-dot" style="color: #674d7c;">•</div>
+                    <div class="color-name">Text</div>
+                    <button class="copy-button" onclick="copyHex('#674d7c', this)">#674d7c</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>
+            <a href="https://github.com/Alexxami" target="_blank">Alexxami</a> |
+            <a href="https://github.com/Chomp-Palette" target="_blank">Chomp Palette</a>
+        </p>
+    </footer>
+
+    <script>
+        // JavaScript to handle collapsible sections
+        function toggleCollapsible(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector(".arrow");
+
+            if (content.classList.contains("open")) {
+                content.classList.remove("open");
+                arrow.textContent = "→"; // Arrow pointing right
+            } else {
+                content.classList.add("open");
+                arrow.textContent = "↓"; // Arrow pointing down
+            }
+        }
+
+        // JavaScript to copy hex code to clipboard
+        function copyHex(hexCode, button) {
+            navigator.clipboard.writeText(hexCode).then(() => {
+                button.classList.add("copied");
+                setTimeout(() => {
+                    button.classList.remove("copied");
+                }, 2000); // Reset after 2 seconds
+            });
+        }
+    </script>
+</body>
+</html>
